@@ -9,18 +9,6 @@
  */
 package org.springframework.security.oauth2.provider.token.store;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-
-import java.security.KeyPair;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Map;
-import java.util.Set;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
@@ -39,19 +27,31 @@ import org.springframework.security.oauth2.provider.OAuth2Request;
 import org.springframework.security.oauth2.provider.token.AccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.UserAuthenticationConverter;
 
+import java.security.KeyPair;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Map;
+import java.util.Set;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 /**
  * @author Dave Syer
  * @author Luke Taylor
  */
-public class JwtAccessTokenConverterTests {
+public class DefaultJwtAccessTokenConverterTests {
 
-	private JwtAccessTokenConverter tokenEnhancer;
+	private DefaultJwtAccessTokenConverter tokenEnhancer;
 
 	private Authentication userAuthentication;
 
 	@Before
 	public void setUp() throws Exception {
-		tokenEnhancer = new JwtAccessTokenConverter();
+		tokenEnhancer = new DefaultJwtAccessTokenConverter();
 		userAuthentication = new TestAuthentication("test2", true);
 	}
 

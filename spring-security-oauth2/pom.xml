@@ -186,6 +186,13 @@
 			<optional>true</optional>
 		</dependency>
 
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>4.33</version>
+            <optional>true</optional>
+        </dependency>
+
 		<dependency>
 			<groupId>org.powermock</groupId>
 			<artifactId>powermock-module-junit4</artifactId>

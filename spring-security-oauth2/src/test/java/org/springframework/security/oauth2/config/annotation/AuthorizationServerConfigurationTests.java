@@ -68,6 +68,7 @@ import org.springframework.security.oauth2.provider.error.DefaultWebResponseExce
 import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.DefaultJwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
@@ -425,7 +426,7 @@ public class AuthorizationServerConfigurationTests {
 
 		@Bean
 		protected JwtAccessTokenConverter jwtTokenEnhancer() {
-			return new JwtAccessTokenConverter();
+			return new DefaultJwtAccessTokenConverter();
 		}
 
 		@Override
@@ -454,7 +455,7 @@ public class AuthorizationServerConfigurationTests {
 
 		@Bean
 		protected JwtAccessTokenConverter jwtTokenEnhancer() {
-			JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+			JwtAccessTokenConverter converter = new DefaultJwtAccessTokenConverter();
 			MacSigner verifier = new MacSigner("foobar");
 			converter.setSigner(verifier);
 			converter.setVerifier(verifier);
